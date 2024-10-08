@@ -1,0 +1,1 @@
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = workspace.StickersCollectibles.Golden.StickerGolden01.Collider.CFrame
