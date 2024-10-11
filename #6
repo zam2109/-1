@@ -1,0 +1,6 @@
+local remote = game:GetService("ReplicatedStorage").Festival.Remote.purchaseServer
+remote:FireServer(91863099204720)
+wait(10)
+remote:FireServer(112596642763619)
+wait(10)
+remote:FireServer(110579984462567)
