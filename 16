@@ -1,0 +1,24 @@
+local args = {
+        [1] = "Black Gatsby",
+        [2] = "All In My Head"
+    }
+
+    game:GetService("ReplicatedStorage").Orion.node_modules:FindFirstChild("@supersocial").netwire.NetWire.Remotes.MusicService.RE.PlayerStreamedSong:FireServer(unpack(args)) 
+local args = {
+        [1] = "Mariangela feat. Cola Boyy",
+        [2] = "Frágil"
+    }
+
+    game:GetService("ReplicatedStorage").Orion.node_modules:FindFirstChild("@supersocial").netwire.NetWire.Remotes.MusicService.RE.PlayerStreamedSong:FireServer(unpack(args))
+local args = {
+        [1] = "Jenita",
+        [2] = "Zero G (U & Me)"
+    }
+
+    game:GetService("ReplicatedStorage").Orion.node_modules:FindFirstChild("@supersocial").netwire.NetWire.Remotes.MusicService.RE.PlayerStreamedSong:FireServer(unpack(args))
+local args = {
+        [1] = "Charlotte Rose Benjamin",
+        [2] = "Hairpin"
+    }
+
+    game:GetService("ReplicatedStorage").Orion.node_modules:FindFirstChild("@supersocial").netwire.NetWire.Remotes.MusicService.RE.PlayerStreamedSong:FireServer(unpack(args))
