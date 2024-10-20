@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/StarX-exploit/StarX/refs/heads/main/StarX.lua"))()
