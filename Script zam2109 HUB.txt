@@ -2528,7 +2528,7 @@ spawn(function()
     wait(.24)
     require(game.ReplicatedStorage.Notification).new("<Color=Yellow>Tham gia disocrd https://discord.gg/3f6SUbGneC để cập nhật thông tin mới nhất nhé<Color=/>"):Display()
     wait(.29)
-    require(game.ReplicatedStorage.Notification).new("<Color=Yellow>Channel : zam2109 <Color=/>"):Display()
+    require(game.ReplicatedStorage.Notification).new("<Color=Yellow>Channel : zam2109 Roblox <Color=/>"):Display()
     wait(.36)
 end)
 
