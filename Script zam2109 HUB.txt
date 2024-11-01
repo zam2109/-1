@@ -2601,7 +2601,7 @@ local RA = Window:MakeTab({
 })
 
 local LC = Window:MakeTab({
-    Name = "🙆‍♂️ Người chơi địa phương",
+    Name = "🙆‍♂️ Người chơi",
     Icon = "rbxassetid://104218736848020",
     PremiumOnly = false
 })
@@ -2613,7 +2613,7 @@ local Wld = Window:MakeTab({
 })
 
 local SV = Window:MakeTab({
-    Name = "📈 Trình lưu trạng thái",
+    Name = "📈 Trạng thái",
     Icon = "rbxassetid://104218736848020",
     PremiumOnly = false
 })
@@ -2625,7 +2625,7 @@ local D = Window:MakeTab({
 })
 
 local R = Window:MakeTab({
-    Name = "☣️ Cuộc đua V4",
+    Name = "☣️ Tộc V4",
     Icon = "rbxassetid://104218736848020",
     PremiumOnly = false
 })
@@ -2648,13 +2648,13 @@ local Section = W:AddSection({
 })
 
 
-W:AddLabel("Script By zam219(zam2109)")
+W:AddLabel("Script By zam219 Roblox(zam2109)")
 
 local Section = W:AddSection({
     Name = "Update"
 })
 
-W:AddLabel("[+] zam2109 HUB says hello have a nice day")
+W:AddLabel("[+] zam2109 HUB xin chào các Fan nhá Chúc một ngày zui zẻ")
 W:AddLabel("[+] Load Script Faster!")
 
 local Section = W:AddSection({
