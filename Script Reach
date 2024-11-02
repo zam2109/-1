@@ -19,15 +19,6 @@ local TitleLabel = Instance.new("TextLabel")
 local ImageLabel = Instance.new("ImageLabel")
 local TextLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
-local TextLabel_2 = Instance.new("TextLabel")
-local TextLabel_3 = Instance.new("TextLabel")
-local TextLabel_4 = Instance.new("TextLabel")
-local TextButton = Instance.new("TextButton")
-local Frame_2 = Instance.new("Frame")
-local Frame_3 = Instance.new("Frame")
-local Frame_4 = Instance.new("Frame")
-local Frame_5 = Instance.new("Frame")
-local TextButton_2 = Instance.new("TextButton")
 
 -- Properties:
 
@@ -62,6 +53,7 @@ ImageLabel.Position = UDim2.new(0.25, 0, 0.2, 0)
 ImageLabel.BackgroundTransparency = 1
 ImageLabel.Image = "rbxassetid://104218736848020"
 
+-- Reach Label
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.BackgroundTransparency = 1.000
@@ -73,6 +65,7 @@ TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
 TextLabel.TextWrapped = true
 
+-- Reach Input Box
 TextBox.Parent = Frame
 TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 TextBox.BackgroundTransparency = 0.5 -- To see the red color underneath
@@ -84,8 +77,5 @@ TextBox.TextColor3 = Color3.fromRGB(255, 0, 0) -- Red text color
 TextBox.TextScaled = true
 TextBox.TextWrapped = true
 
-TextLabel_2.Parent = Frame
-TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0, 0, 0.7, 0)
-TextLabel_2.Size = UDim2.new(0.6, 0, 0
+-- Parent the ScreenGui to Player's PlayerGui
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
