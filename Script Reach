@@ -9,65 +9,83 @@ visualizer.BrickColor = BrickColor.Red()
 visualizer.Transparency = 0.6
 visualizer.Anchored = true
 visualizer.CanCollide = false
-visualizer.Size = Vector3.new(0.5,0.5,0.5)
+visualizer.Size = Vector3.new(0.5, 0.5, 0.5)
 visualizer.BottomSurface = Enum.SurfaceType.Smooth
 visualizer.TopSurface = Enum.SurfaceType.Smooth
 
+-- Create the ScreenGui and its components
 local ScreenGui = Instance.new("ScreenGui")
 local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local TextBox = Instance.new("TextBox")
 local TextLabel_2 = Instance.new("TextLabel")
-local TextLabel_3 = Instance.new("TextLabel")
-local TextLabel_4 = Instance.new("TextLabel")
 local TextButton = Instance.new("TextButton")
-local Frame_2 = Instance.new("Frame")
-local Frame_3 = Instance.new("Frame")
-local Frame_4 = Instance.new("Frame")
-local Frame_5 = Instance.new("Frame")
-local TextButton_2 = Instance.new("TextButton")
 
---Properties:
-
+-- Set properties for ScreenGui
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.DisplayOrder = 999999999
 ScreenGui.ResetOnSpawn = false
 
+-- Set properties for Frame
 Frame.Parent = ScreenGui
 Frame.AnchorPoint = Vector2.new(0, 0.5)
 Frame.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-Frame.BackgroundTransparency = 0.300
+Frame.BackgroundTransparency = 0.3
 Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Frame.BorderSizePixel = 4
-Frame.Position = UDim2.new(0, 0, 0.800000024, 0)
-Frame.Size = UDim2.new(0.150000006, 0, 0.300000012, 0)
+Frame.Position = UDim2.new(0, 0, 0.8, 0)
+Frame.Size = UDim2.new(0.15, 0, 0.3, 0)
 
+-- Set properties for TextLabel
 TextLabel.Parent = Frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Size = UDim2.new(0.600000024, 0, 0.200000003, 0)
+TextLabel.BackgroundTransparency = 1
+TextLabel.Size = UDim2.new(0.6, 0, 0.2, 0)
 TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "zam2109 HUB"  -- Thay đổi ở đây
+TextLabel.Text = "zam2109 HUB"
 TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel.TextScaled = true
-TextLabel.TextSize = 14.000
+TextLabel.TextSize = 14
 TextLabel.TextWrapped = true
 
+-- Set properties for TextBox
 TextBox.Parent = Frame
 TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.BackgroundTransparency = 1.000
-TextBox.Position = UDim2.new(0.600000024, 0, 0, 0)
-TextBox.Size = UDim2.new(0.400000006, 0, 0.200000003, 0)
+TextBox.BackgroundTransparency = 1
+TextBox.Position = UDim2.new(0.6, 0, 0, 0)
+TextBox.Size = UDim2.new(0.4, 0, 0.2, 0)
 TextBox.Font = Enum.Font.SourceSans
 TextBox.Text = "3.5"
 TextBox.TextColor3 = Color3.fromRGB(255, 0, 0)
 TextBox.TextScaled = true
-TextBox.TextSize = 14.000
+TextBox.TextSize = 14
 TextBox.TextWrapped = true
 
+-- Set properties for TextLabel_2
 TextLabel_2.Parent = Frame
 TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel_2.BackgroundTransparency = 1.000
-TextLabel_2.Position = UDim2.new(0, 0, 0.200000003, 0)
-TextLabel_2.Size = UDim2.new(0.600000024, 0, 0.200000003, 0)
-TextLabel_2.Font = Enum
+TextLabel_2.BackgroundTransparency = 1
+TextLabel_2.Position = UDim2.new(0, 0, 0.2, 0)
+TextLabel_2.Size = UDim2.new(0.6, 0, 0.2, 0)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "Enter value:"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14
+TextLabel_2.TextWrapped = true
+
+-- Set properties for TextButton
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 170, 0)
+TextButton.Position = UDim2.new(0, 0, 0.4, 0)
+TextButton.Size = UDim2.new(1, 0, 0.2, 0)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "Submit"
+TextButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.TextScaled = true
+TextButton.TextSize = 14
+TextButton.TextWrapped = true
+
+-- Functionality for the TextButton
+TextButton.MouseButton1Click
