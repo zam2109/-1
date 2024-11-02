@@ -1,81 +1,103 @@
-local active = true
-local trueActive = true
-local reachType = "Sphere"
-local dmgEnabled = true
-local visualizerEnabled = false
-
-local visualizer = Instance.new("Part")
-visualizer.BrickColor = BrickColor.Red()
-visualizer.Transparency = 0.6
-visualizer.Anchored = true
-visualizer.CanCollide = false
-visualizer.Size = Vector3.new(0.5, 0.5, 0.5)
-visualizer.BottomSurface = Enum.SurfaceType.Smooth
-visualizer.TopSurface = Enum.SurfaceType.Smooth
+-- Create the GUI
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
 local ScreenGui = Instance.new("ScreenGui")
-local Frame = Instance.new("Frame")
+local MainFrame = Instance.new("Frame")
+local TitleBar = Instance.new("Frame")
 local TitleLabel = Instance.new("TextLabel")
-local ImageLabel = Instance.new("ImageLabel")
-local TextLabel = Instance.new("TextLabel")
-local TextBox = Instance.new("TextBox")
+local Resizer = Instance.new("Frame")
 
--- Properties:
+-- Properties for ScreenGui
+ScreenGui.Parent = playerGui
 
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-ScreenGui.DisplayOrder = 999999999
-ScreenGui.ResetOnSpawn = false
+-- Main Frame Properties
+MainFrame.Parent = ScreenGui
+MainFrame.Size = UDim2.new(0.4, 0, 0.4, 0)
+MainFrame.Position = UDim2.new(0.3, 0, 0.3, 0)
+MainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+MainFrame.BorderSizePixel = 0
+MainFrame.BackgroundTransparency = 0.1
+MainFrame.ClipsDescendants = true
 
-Frame.Parent = ScreenGui
-Frame.AnchorPoint = Vector2.new(0, 0.5)
-Frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Red background color
-Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Frame.BorderSizePixel = 4
-Frame.Position = UDim2.new(0, 0, 0.800000024, 0)
-Frame.Size = UDim2.new(0.25, 0, 0.4, 0)
+-- Title Bar Properties
+TitleBar.Parent = MainFrame
+TitleBar.Size = UDim2.new(1, 0, 0.1, 0)
+TitleBar.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TitleBar.BorderSizePixel = 0
 
--- Title Label
-TitleLabel.Parent = Frame
-TitleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TitleLabel.BackgroundTransparency = 1.000
-TitleLabel.Size = UDim2.new(1, 0, 0.2, 0)
-TitleLabel.Font = Enum.Font.SourceSansBold
-TitleLabel.Text = "zam2109 HUB"
-TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 0)
+-- Title Label Properties
+TitleLabel.Parent = TitleBar
+TitleLabel.Size = UDim2.new(1, 0, 1, 0)
+TitleLabel.Text = "zam2109 HUB" -- Set the title to "zam2109 HUB"
+TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TitleLabel.BackgroundTransparency = 1
 TitleLabel.TextScaled = true
-TitleLabel.TextWrapped = true
-TitleLabel.TextStrokeTransparency = 0.5
+TitleLabel.TextStrokeTransparency = 0.5 -- Optional: Add stroke for better visibility
 
--- ImageLabel
-ImageLabel.Parent = Frame
-ImageLabel.Size = UDim2.new(0.5, 0, 0.3, 0)
-ImageLabel.Position = UDim2.new(0.25, 0, 0.2, 0)
-ImageLabel.BackgroundTransparency = 1
-ImageLabel.Image = "rbxassetid://104218736848020"
+-- Resizer Properties
+Resizer.Parent = MainFrame
+Resizer.Size = UDim2.new(0.05, 0, 0.05, 0)
+Resizer.Position = UDim2.new(1, -5, 1, -5)
+Resizer.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+Resizer.BorderSizePixel = 0
+Resizer.AnchorPoint = Vector2.new(1, 1)
 
--- Reach Label
-TextLabel.Parent = Frame
-TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.BackgroundTransparency = 1.000
-TextLabel.Position = UDim2.new(0, 0, 0.5, 0)
-TextLabel.Size = UDim2.new(0.6, 0, 0.2, 0)
-TextLabel.Font = Enum.Font.SourceSans
-TextLabel.Text = "Reach:"
-TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-TextLabel.TextScaled = true
-TextLabel.TextWrapped = true
+-- Variables for dragging
+local dragging = false
+local dragStart = Vector2.new()
+local startPos = MainFrame.Position
 
--- Reach Input Box
-TextBox.Parent = Frame
-TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.BackgroundTransparency = 0.5 -- To see the red color underneath
-TextBox.Position = UDim2.new(0.6, 0, 0.5, 0)
-TextBox.Size = UDim2.new(0.4, 0, 0.2, 0)
-TextBox.Font = Enum.Font.SourceSans
-TextBox.Text = "3.5"
-TextBox.TextColor3 = Color3.fromRGB(255, 0, 0) -- Red text color
-TextBox.TextScaled = true
-TextBox.TextWrapped = true
+-- Function to update the position of the frame
+local function updatePosition(input)
+    local delta = input.Position - dragStart
+    MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+end
 
--- Parent the ScreenGui to Player's PlayerGui
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+-- Title Bar Dragging
+TitleBar.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+        dragStart = input.Position
+        startPos = MainFrame.Position
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+-- Update position while dragging
+game:GetService("User InputService").InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
+        updatePosition(input)
+    end
+end)
+
+-- Resizing Functionality
+local function resize(input)
+    local newSize = UDim2.new(0, input.Position.X - MainFrame.AbsolutePosition.X, 0, input.Position.Y - MainFrame.AbsolutePosition.Y)
+    MainFrame.Size = UDim2.new(math.clamp(newSize.X.Scale, 0.2, 1), 0, math.clamp(newSize.Y.Scale, 0.2, 1), 0)
+end
+
+-- Resizer Dragging
+Resizer.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        dragging = true
+
+        input.Changed:Connect(function()
+            if input.UserInputState == Enum.UserInputState.End then
+                dragging = false
+            end
+        end)
+    end
+end)
+
+-- Update size while resizing
+game:GetService("User InputService").InputChanged:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseMovement and dragging then
+        resize(input)
+    end
+end)
