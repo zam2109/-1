@@ -1,0 +1,5 @@
+--Easy
+game:GetService("ReplicatedStorage").Network.CompleteEvent:FireServer("Easy",10000)
+
+--Hard
+game:GetService("ReplicatedStorage").Network.CompleteEvent:FireServer("Hard",10000)
