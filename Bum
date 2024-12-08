@@ -1,0 +1,60 @@
+-- Cài đặt URL của Webhook Discord
+local webhookURL = "https://discord.com/api/webhooks/1315330562898006016/0bMEboX_0ZzqXDf-s5C5Yqba-oOJLFp8q8LD7fTxEv0zNwyXj5Rq0ZTd38mzzNnD0lpL"
+
+-- Hàm gửi thông báo đến Discord Webhook
+local function sendToDiscord(message)
+    local HttpService = game:GetService("HttpService")
+    
+    -- Cấu trúc thông điệp JSON
+    local data = {
+        content = message
+    }
+    
+    -- Chuyển đổi dữ liệu thành JSON
+    local jsonData = HttpService:JSONEncode(data)
+    
+    -- Gửi yêu cầu POST đến Discord Webhook
+    local success, response = pcall(function()
+        return HttpService:PostAsync(webhookURL, jsonData, Enum.HttpContentType.ApplicationJson)
+    end)
+    
+    if success then
+        print("Đã gửi thông báo tới Discord: " .. response)
+    else
+        warn("Gửi thông báo thất bại: " .. tostring(response))
+    end
+end
+
+-- Hàm cập nhật thời gian và gửi thông báo
+local function updateTime()
+    while true do
+        -- Lấy thời gian hiện tại trong trò chơi
+        local currentTime = os.date("%Y-%m-%d %H:%M:%S")
+        
+        -- Tạo thông điệp muốn gửi
+        local message = "Thời gian hiện tại trong trò chơi là: " .. currentTime
+        
+        -- Gửi thông điệp đến Discord
+        sendToDiscord(message)
+        
+        wait(60) -- Chờ 60 giây trước khi gửi lần tiếp theo
+    end
+end
+
+-- Tạo script dưới dạng chuỗi
+local scriptString = [[
+    local function executeScript()
+        updateTime()
+    end
+    
+    executeScript()
+]]
+
+-- Chạy script bằng loadstring
+local scriptFunction, loadError = loadstring(scriptString)
+
+if scriptFunction then
+    scriptFunction()
+else
+    warn("Lỗi khi tải script: " .. tostring(loadError))
+end
