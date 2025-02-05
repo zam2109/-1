@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get User IP Address</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+    }
+    .ip-address {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your IP Address:</h1>
+    <p class="ip-address" id="ip">Loading...</p>
+  </div>
+
+  <script>
+    // Fetch user's IP address using ipify API
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        // Display the IP address in the HTML element
+        document.getElementById('ip').textContent = data.ip;
+      })
+      .catch(error => {
+        // In case of an error, display a message
+        document.getElementById('ip').textContent = 'Unable to fetch IP address';
+        console.error('Error fetching IP address:', error);
+      });
+  </script>
+</body>
+</html>
