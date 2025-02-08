@@ -2,7 +2,7 @@ local Notification = require(game:GetService("ReplicatedStorage").Notification)
 Notification.new("<Color=Cyan>zam2109 HUB <Color=/>"):Display()
 wait(0.5)
 Notification.new("<Color=Yellow>zam2109 is King 👑<Color=/>"):Display()
-require(game.ReplicatedStorage:WaitForChild("Notification")).new(" <Color=Red>zam2109 Roblox On Top<Color=/> "):Display()
+require(game.ReplicatedStorage:WaitForChild("Notification")).new(" <Color=Red>Shop zam2109 Roblox: https://urlvn.net/zvuq63y<Color=/> "):Display()
 require(game.ReplicatedStorage:WaitForChild("Notification")).new(" <Color=Green>Welcome to zam2109 Roblox Community<Color=/> "):Display()
 require(game.ReplicatedStorage:WaitForChild("Notification")).new(" <Color=Yellow>https://discord.gg/3f6SUbGneC<Color=/> "):Display()
 
