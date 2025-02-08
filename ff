@@ -9,7 +9,7 @@ require(game.ReplicatedStorage:WaitForChild("Notification")).new(" <Color=Yellow
 -- Phát nhạc khi mã chạy (ID nhạc khi chạy mã là 83142874256382)
 local joinSound = Instance.new("Sound")
 joinSound.Name = "JoinSound"
-joinSound.SoundId = "rbxassetid://83142874256382" -- ID nhạc khi chạy mã
+joinSound.SoundId = "rbxassetid://18315905210" -- ID nhạc khi chạy mã
 joinSound.Volume = 3
 joinSound.Looped = true
 joinSound.Parent = workspace
