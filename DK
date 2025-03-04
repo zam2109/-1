@@ -897,7 +897,7 @@ spawn(
                             else
                                 loadstring(
                                     game:HttpGet(
-                                        "https://raw.githubusercontent.com/obfalchx/Api/refs/heads/main/Dough.txt"
+                                        "https://pastefy.app/qLbR46KL/raw"
                                     )
                                 )()
                             end
