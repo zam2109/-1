@@ -1,7 +1,7 @@
-## Get Token = Chrome hoặc PC
-> ## Bước 1: Lên Chrome hay Google vào discord.com
-> ## Bước 2: Bật trang Web dành cho máy tính và đăng nhập
-> ## Bước 3: Nhấn vào thanh tìm kiếm nhập **`javascript:`** rồi dán lệnh bên dưới vào sau
+Get Token = Chrome hoặc PC
+Bước 1: Lên Chrome hay Google vào discord.com
+Bước 2: Bật trang Web dành cho máy tính và đăng nhập
+Bước 3: Nhấn vào thanh tìm kiếm nhập javascript rồi dán lệnh bên dưới vào sau
 ```
 (function () {
 location.reload();
