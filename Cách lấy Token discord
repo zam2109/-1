@@ -1,0 +1,15 @@
+## Get Token = Chrome hoặc PC
+> ## Bước 1: Lên Chrome hay Google vào discord.com
+> ## Bước 2: Bật trang Web dành cho máy tính và đăng nhập
+> ## Bước 3: Nhấn vào thanh tìm kiếm nhập **`javascript:`** rồi dán lệnh bên dưới vào sau
+```
+(function () {
+location.reload();
+var i = document.createElement('iframe');
+document.body.appendChild(i);
+prompt('Here is your token', i.contentWindow.localStorage.token.replace(/'/g, ''));
+})();
+```
+
+**Nhớ sau khi dán lệnh trên vào phải kiểm tra xem có `javascript:` ở trước không**
+https://www.youtube.com/shorts/01AxSfeMnQM
