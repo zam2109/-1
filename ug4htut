@@ -1,0 +1,37 @@
+Tải về ( IOS ko cần tải ): https://www.mediafire.com/file/z3d4zb49kerrtod/redfinger_support.zip/file
+Cho android: https://www.youtube.com/watch?v=5bTmrylB1ek
+Cho PC: https://www.youtube.com/watch?v=Ne-FdTBfrMA
+---------------------------------------------------------------------------------------
+Cho ios: https://www.youtube.com/watch?v=DofkCe26OHQ
+Code dán vào dấu trang trên video  để tạo bảng console
+javascript:(()%20=%3E%20%7B%20var%20script%20=%20document.createElement('script');%20script.src%20=%20'//cdn.jsdelivr.net/npm/eruda';%20document.body.appendChild(script);%20script.onload%20=%20(()%20=%3E%20eruda.init());%20%7D)()
+Code để tạo cái bảng nhập Localstorage trong video
+var currentLocalStorage = prompt('Nhập localStorage upghone:');
+
+localStorage.clear();
+
+try {
+
+  var parse = JSON.parse(currentLocalStorage);
+
+  if (parse.hasOwnProperty('userFloatInfo')) {
+
+    delete parse.userFloatInfo;
+
+  }
+
+  for (var name in parse) {
+
+    localStorage.setItem(name, parse[name]);
+
+  }
+
+  window.location.reload();
+
+} catch (error) {
+
+  console.error('Lỗi khi parse JSON:', error);
+
+  alert('JSON không hợp lệ!');
+
+}
